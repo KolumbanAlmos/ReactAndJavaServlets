@@ -79,7 +79,7 @@ public class EmployeeServlet extends HttpServlet {
             String json = br.readLine();
 
             EmployeeDTO employeeDTO = mapper.readValue(json, EmployeeDTO.class);
-            if(employeeDTO == null || StringUtils.isEmpty(employeeDTO)){
+            if(employeeDTO == null || StringUtils.isEmpty(employeeDTO.getEmail())){
                 logger.error(Constants.EMAIL_VALUE_NOT_FILLED_ERROR_MESSAGE);
                 throw new IllegalArgumentException(Constants.EMAIL_VALUE_NOT_FILLED_ERROR_MESSAGE);
             }
