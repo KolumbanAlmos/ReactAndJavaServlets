@@ -4,6 +4,11 @@ import axios from 'axios'
 import Input from "./Input";
 import Button from "./Button";
 
+const instance = axios.create({
+  baseURL: 'http://localhost:8080/benovative/employee',
+  headers: {'Content-Type': 'application/json'}
+});
+
 
 class FormContainer extends Component {
   constructor(props) {
@@ -58,7 +63,7 @@ class FormContainer extends Component {
     e.preventDefault();
     let employeeData = this.state.employee;
 
-    axios.post('http://localhost:8080/benovative/employee', employeeData)
+    instance.post('', employeeData)
     .then(response => 
       {
         this.handleFindAll(e);
@@ -71,7 +76,7 @@ class FormContainer extends Component {
     let employeeData = this.state.employee;
     let newEmail = this.state.newEmail;
 
-    axios.put('http://localhost:8080/benovative/employee', employeeData, { 
+    instance.put('', employeeData, { 
       params: {
         newEmail: newEmail
       }})
@@ -85,7 +90,7 @@ class FormContainer extends Component {
   handleDeleteByEmail(e) {
     e.preventDefault();
     let email = this.state.employee.email;
-    axios.delete('http://localhost:8080/benovative/employee', {
+    instance.delete('', {
       params: {
         email: email
       }
@@ -98,7 +103,7 @@ class FormContainer extends Component {
 
   handleFindAll(e) {
     e.preventDefault();
-    axios.get('http://localhost:8080/benovative/employee')
+    instance.get('')
     .then(response => 
       {
         console.log(response.data);
@@ -115,7 +120,7 @@ class FormContainer extends Component {
   handleFindByEmail(e) {
     e.preventDefault();
     let email = this.state.employee.email;
-    axios.get('http://localhost:8080/benovative/employee', {
+    instance.get('', {
       params: {
         email: email
       }

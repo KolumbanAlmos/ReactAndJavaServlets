@@ -1,4 +1,4 @@
-package employee.servlets;
+package employee.servlet;
 
 public class Constants {
     public static final String MISSING_EMAIL_QUERY_PARAM_ERROR_MESSAGE = "The e-mail query param has to be filled!";
