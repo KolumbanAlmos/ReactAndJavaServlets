@@ -1,4 +1,4 @@
-package employee.servlets;
+package employee.servlet;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

@@ -1,4 +1,6 @@
-package employee.dtos;
+package employee.dto;
+
+import org.springframework.util.StringUtils;
 
 public class EmployeeDTO {
     private String firstName;
@@ -40,7 +42,4 @@ public class EmployeeDTO {
         this.email = email;
     }
 
-    public boolean isValid(){
-        return email != null && !email.isEmpty();
-    }
 }

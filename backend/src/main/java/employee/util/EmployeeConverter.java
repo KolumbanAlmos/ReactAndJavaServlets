@@ -1,7 +1,7 @@
-package employee.utils;
+package employee.util;
 
-import employee.dtos.EmployeeDTO;
-import employee.entities.Employee;
+import employee.dto.EmployeeDTO;
+import employee.entity.Employee;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

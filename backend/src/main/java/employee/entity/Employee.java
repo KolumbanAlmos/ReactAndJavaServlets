@@ -1,4 +1,4 @@
-package employee.entities;
+package employee.entity;
 
 import javax.persistence.*;
 
@@ -62,12 +62,13 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-            "id=" + id +
-            ", firstName='" + firstName + '\'' +
-            ", lastName='" + lastName + '\'' +
-            ", email='" + email + '\'' +
-            '}';
+        final StringBuilder sb = new StringBuilder("Employee{");
+        sb.append("id=").append(id);
+        sb.append(", firstName='").append(firstName).append('\'');
+        sb.append(", lastName='").append(lastName).append('\'');
+        sb.append(", email='").append(email).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 
     @Override

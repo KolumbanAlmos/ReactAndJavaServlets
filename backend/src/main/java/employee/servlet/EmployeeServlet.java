@@ -1,13 +1,14 @@
-package employee.servlets;
+package employee.servlet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import employee.services.EmployeeService;
-import employee.dtos.EmployeeDTO;
-import employee.utils.EmployeeConverter;
-import employee.entities.Employee;
+import employee.service.EmployeeService;
+import employee.dto.EmployeeDTO;
+import employee.util.EmployeeConverter;
+import employee.entity.Employee;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -78,7 +79,7 @@ public class EmployeeServlet extends HttpServlet {
             String json = br.readLine();
 
             EmployeeDTO employeeDTO = mapper.readValue(json, EmployeeDTO.class);
-            if(!employeeDTO.isValid()){
+            if(employeeDTO == null || StringUtils.isEmpty(employeeDTO)){
                 logger.error(Constants.EMAIL_VALUE_NOT_FILLED_ERROR_MESSAGE);
                 throw new IllegalArgumentException(Constants.EMAIL_VALUE_NOT_FILLED_ERROR_MESSAGE);
             }
@@ -117,7 +118,7 @@ public class EmployeeServlet extends HttpServlet {
             }
 
             String newEmail = request.getParameter("newEmail");
-            if(newEmail != null && !newEmail.isEmpty()){
+            if(!StringUtils.isEmpty(newEmail)){
                 employeeDTO.setEmail(newEmail);
             }
 
@@ -137,7 +138,7 @@ public class EmployeeServlet extends HttpServlet {
     protected void doDelete(HttpServletRequest request, HttpServletResponse response){
         String email = request.getParameter("email");
 
-        if(email == null || email.isEmpty()){
+        if(StringUtils.isEmpty(email)){
             logger.error(Constants.MISSING_EMAIL_QUERY_PARAM_ERROR_MESSAGE);
             throw new IllegalArgumentException(Constants.MISSING_EMAIL_QUERY_PARAM_ERROR_MESSAGE);
         }

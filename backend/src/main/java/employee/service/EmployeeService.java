@@ -1,7 +1,7 @@
-package employee.services;
+package employee.service;
 
-import employee.entities.Employee;
-import employee.repositories.EmployeeRepository;
+import employee.entity.Employee;
+import employee.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
