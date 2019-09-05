@@ -1,4 +1,4 @@
-package employee.dao;
+package employee.repositories;
 
 import employee.entities.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;

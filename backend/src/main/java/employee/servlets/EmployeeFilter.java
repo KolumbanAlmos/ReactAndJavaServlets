@@ -8,6 +8,12 @@ import java.io.IOException;
 @WebFilter(asyncSupported = true, urlPatterns = { "/*" })
 public class EmployeeFilter implements Filter {
 
+    /**
+     * Filter that puts the headers that are needed by CORS on the response.
+     * @param request -
+     * @param response -
+     * @param chain -
+     */
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         ((HttpServletResponse) response).addHeader("Access-Control-Allow-Origin", "*");

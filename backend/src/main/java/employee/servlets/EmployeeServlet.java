@@ -1,7 +1,7 @@
 package employee.servlets;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import employee.dao.EmployeeService;
+import employee.services.EmployeeService;
 import employee.dtos.EmployeeDTO;
 import employee.utils.EmployeeConverter;
 import employee.entities.Employee;
